@@ -16,3 +16,11 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route("/user", methods=["POST"])
+def user_create():
+    data=request.get_json()
+    print(data)
+    new_user=User(email=data["email"], password=data["password"], is_active=True)
+    print(new_user)
+    return "ok"
